@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <title>元素模拟</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <link rel="icon" type="image/png" href="images/logo.ico">
+  <link rel="stylesheet" href="css/jquery.dad.css">
+  <link rel="stylesheet" href="css/drag.css" />
+  <link rel="stylesheet" href="css/date.css">
+  <link rel="stylesheet" href="css/ite.css">
+  <link rel="stylesheet" href="css/menu.css">
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/jquery.dad.min.js"></script>
+  <script src="js/schedule.js"></script>
+  <script src="js/date.js"></script>
+  <script src="js/drag.js"></script>
+
+</head>
+
+<body onload="myfunction()">
+
+  <br />
+  <H2>登录模拟（admin admin）</H2>
+
+  <form method="get" action="" onsubmit="return submitTest()">
+    <div id="change_margin_1">
+      <input type="text" name="user" placeholder="请输入用户名" onblur="oBlur_1()" onfocus="oFocus_1()">
+    </div>
+    <!-- input的value为空时弹出提醒 -->
+    <p id="remind_1"></p>
+    <div id="change_margin_2">
+      <input class="password" type="password" name="password" placeholder="请输入密码" onblur="oBlur_2()" onfocus="oFocus_2()">
+    </div>
+    <!-- input的value为空时弹出提醒 -->
+    <p id="remind_2"></p>
+    <div id="change_margin_3">
+      <input class="content-form-signup" type="submit" value="登录">
+    </div>
+  </form>
+  
+  <!--frame-->
+  <div id="fr">
+    <h2>frame</h2>
+    <div id="D1"></div>
+    <div style="width: 50%;float: left">
+      <h3>Bing</h3>
+      <iframe src="https://www.bing.com/" name="frame1" height="700px" width="100%"></iframe>
+    </div>
+    <div style="width: 50%;float: right">
+      <h3>百度</h3>
+      <iframe src="https://www.baidu.com" height="700px" width="100%"></iframe>
+    </div>
+  </div>
+
+  <hr>
+
+  <!--单行文本框-->
+  <div>
+    <form>
+      <table>
+        <tr>
+          <h2>单行文本框</h2>
+        </tr>
+
+        <tr>
+          <td>
+            <input value="我在这" name="t1" id="i1" class="text" title="我在这">
+          </td>
+        </tr>
+
+        <tr name="div1">
+          <td>
+            <input value="怎么找到我？" title="怎么找到我">
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <input value="我是无效的" disabled name="textdisabled" title="我是无效的">
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <input value="我是只读的" readonly name="textreadonly" title="我是只读的">
+          </td>
+        </tr>
+
+      </table>
+    </form>
+  </div>
+
+  <hr />
+
+  <!--多行文本框-->
+  <div>
+    <form>
+      <table>
+        <tr>
+          <h2>多行文本框</h2>
+        </tr>
+        <tr>
+          <td>
+            <textarea name="ta1" style="height: 100px;width: 200px" title="多行文本框"></textarea>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+
+
+  <hr />
+
+  <!--单击-->
+  <div>
+    <h2>单击</h2>
+    <div onclick="click_on(this)" style="background-color:green;color:#ffffff;width:90px;height:20px;padding:40px;font-size:12px;">
+      请单击这里
+    </div>
+
+    <script>
+      function click_on(obj) {
+        if (obj.style.backgroundColor === 'green') {
+          obj.style.backgroundColor = 'red'
+        } else {
+          obj.style.backgroundColor = 'green'
+        }
+      }
+    </script>
+  </div>
+
+  <hr />
+
+  <div>
+    <H2>链接</H2>
+    <a href="..">返回演示官网</a>
+    <a href="https://www.bing.com/" target="_blank">新标签页打开Bing</a>
+    <a href="https://www.baidu.com/" target="_blank">新标签页打开百度</a>
+    <button onclick="newMsgWin()">
+      <font style="vertical-align: inherit;">
+        <font style="vertical-align: inherit;">新消息窗口</font>
+      </font>
+    </button>
+    <button id="button1" onclick="newBrwWin()">
+      <font style="vertical-align: inherit;">
+        <font style="vertical-align: inherit;">新的浏览器窗口打开百度</font>
+      </font>
+    </button>
+  </div>
+  <hr />
+
+
+  <br />
+  <div id="s"></div>
+  <br />
+  <hr />
+
+
+  <!--多选框-->
+  <form>
+    <h2>多选框</h2>
+    <table>
+      <tr>
+        <td>
+          <input type="checkbox" value="cv1" name="c1" title="checkbox">
+        </td>
+
+        <td>
+          <input type="checkbox" value="cv2" title="checkbox">
+        </td>
+
+        <td>
+          <input type="checkbox" value="cv3" name="c1" title="checkbox">
+        </td>
+
+        <td>
+          <input type="checkbox" value="" title="checkbox">
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <hr />
+
+  <!--单选框-->
+  <form>
+    <h2>单选框</h2>
+    <table>
+      <tr>
+        <td>
+          <input type="radio" value="rv1" name="r1" title="radio">
+        </td>
+        <td>
+          <input type="radio" value="rv2" name="r1" title="radio">
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <hr />
+
+  <!--下拉列表-->
+  <form>
+    <h2>下拉列表，弹窗提示你选择文本</h2>
+
+    <div id="s2Id">o01</div>
+    <br />
+    <select name="s1" id="s1Id" onchange="select_change()" title="下拉列表">
+      <option value="01">1</option>
+      <option value="02">2</option>
+      <option value="03">3</option>
+    </select>
+    <script>
+      function select_change() {
+        document.getElementById('s2Id').textContent = document.getElementById("s1Id").options[window.document.getElementById(
+          "s1Id").selectedIndex].text;
+      }
+    </script>
+    <br />
+    <br />
+
+    <select id="s3Id" multiple="multiple" size="10" title="下拉列表多选">
+      <option value="1">01</option>
+      <option value="2">02</option>
+      <option value="3">03</option>
+      <option value="4">04</option>
+      <option value="5">05</option>
+      <option value="6">06</option>
+      <option value="7">07</option>
+      <option value="8">08</option>
+      <option value="9">09</option>
+      <option value="10">10</option>
+    </select>
+  </form>
+
+  <hr />
+
+  <!--表格-->
+  <form>
+    <h2>表格</h2>
+    <table border="1" id="t4">
+      <tbody>
+        <tr>
+          <td>EMPLOYEE_ID</td>
+          <td>NAME</td>
+          <td>EMAIL</td>
+          <td>PHONE_NUMBER</td>
+          <td>JOB_ID</td>
+        </tr>
+        <tr>
+          <td>E101</td>
+          <td>King</td>
+          <td>steven.king@gmail.com</td>
+          <td>987123</td>
+          <td>Dev12</td>
+        </tr>
+        <tr>
+          <td>E102</td>
+          <td>Kochhar</td>
+          <td>neena.kochhar@gmail.com</td>
+          <td>425323</td>
+          <td>Dev14</td>
+        </tr>
+        <tr>
+          <td>E103</td>
+          <td>Ackyard</td>
+          <td>allan.ackyard@gmail.com</td>
+          <td>654124</td>
+          <td>Dev18</td>
+        </tr>
+        <tr>
+          <td>E201</td>
+          <td>Sharma</td>
+          <td>ashutosh.sharma@gmail.com</td>
+          <td>562452</td>
+          <td>Dev14</td>
+        </tr>
+        <tr>
+          <td>E202</td>
+          <td>Baghel</td>
+          <td>avdesh.baghel</td>
+          <td>452243</td>
+          <td>Dev14</td>
+        </tr>
+        <tr>
+          <td>E203</td>
+          <td>Kumar</td>
+          <td>harish.kumar@gmail.com</td>
+          <td>245243</td>
+          <td>Dev12</td>
+        </tr>
+        <tr>
+          <td>E101</td>
+          <td>Wattson</td>
+          <td>bob.wattson@gmail.com</td>
+          <td>893223</td>
+          <td>Dev12</td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+
+  <hr />
+
+  <!--警告框-->
+  <div>
+    <div>
+      <h2>警告框</h2>
+      <script type="text/javascript">
+        function showConfirm() {
+          const t12 = document.f12.t12;
+          if (confirm("有警告?")) {
+            t12.value = "点击了确定";
+          } else {
+            t12.value = "点击了取消";
+          }
+        }
+      </script>
+
+      <form name="f12" id="f12">
+        <input type="button" name="b1" value="点击弹出警告框" onclick="showConfirm()" />
+        <br />
+        <br />
+        <label>
+          <input type="text" name="t12" />
+        </label>
+      </form>
+    </div>
+    <br />
+    <div>
+      <script type="text/javascript">
+        function showPrompt() {
+          document.f2.t2.value = prompt("提个问题?", "输入答案");
+        }
+      </script>
+
+      <form name="f2" id="f2">
+        <input type="button" name="b2" value="点击弹出提问框" onclick="showPrompt()" />
+        <br />
+        <br />
+        <label>
+          <input type="text" name="t2" />
+        </label>
+      </form>
+    </div>
+  </div>
+
+  <hr />
+
+  <!--双击-->
+  <div>
+    <h2>双击</h2>
+    <div ondblclick="myFc(this)" style="background-color:green;color:#ffffff;width:90px;height:20px;padding:40px;font-size:12px;">
+      请双击这里
+    </div>
+
+    <script>
+      function myFc(obj) {
+        if (obj.style.backgroundColor === 'green') {
+          obj.style.backgroundColor = 'red'
+        } else {
+          obj.style.backgroundColor = 'green'
+        }
+      }
+
+    </script>
+  </div>
+
+  <hr />
+
+  <!--悬浮-->
+  <div>
+    <h2>悬浮</h2>
+    <div onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color:#008000;width:150px;height:20px;padding:40px;color:#ffffff;">
+      把鼠标移到上面
+    </div>
+
+    <script>
+      function mOver(obj) {
+        obj.innerHTML = "谢谢";
+        obj.style.backgroundColor = '#fb0011'
+      }
+
+      function mOut(obj) {
+        obj.innerHTML = "把鼠标移到上面";
+        obj.style.backgroundColor = '#008000'
+      }
+    </script>
+  </div>
+
+  <br />
+
+  <!--多级CSS3动画下拉菜单-->
+  <div id="menu-wrap">
+    <ul id="menu">
+      <li>
+        <a href="">分 类</a>
+        <ul>
+          <li>
+            <a href="">页面重构</a>
+            <ul>
+              <li>
+                <a href="">HTML</a>
+              </li>
+              <li>
+                <a href="">CSS</a>
+              </li>
+              <li>
+                <a href="">Photoshop</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="">编程语言</a>
+            <ul>
+              <li>
+                <a href="">JavaScript</a>
+              </li>
+              <li>
+                <a href="">PHP</a>
+              </li>
+              <li>
+                <a href="">Java</a>
+              </li>
+              <li>
+                <a href="">Python</a>
+              </li>
+              <li>
+                <a href="">NodeJS</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="">调试工具</a>
+            <ul>
+              <li>
+                <a href="">Firebug</a>
+              </li>
+              <li>
+                <a href="">Web Developer Toolbar</a>
+              </li>
+              <li>
+                <a href="">IETester</a>
+              </li>
+              <li>
+                <a href="">YSlow</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="">浏览器</a>
+            <ul>
+              <li>
+                <a href="">IE</a>
+              </li>
+              <li>
+                <a href="">Firefox</a>
+              </li>
+              <li>
+                <a href="">Chrome</a>
+              </li>
+              <li>
+                <a href="">Safari</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="">链 接</a>
+        <ul>
+          <li>
+            <a href="">门户</a>
+            <ul>
+              <li>
+                <a href="">百度</a>
+                <ul>
+                  <li>
+                    <a href="">百度知道</a>
+                  </li>
+                  <li>
+                    <a href="">百度音乐</a>
+                  </li>
+                  <li>
+                    <a href="">百度百科</a>
+                  </li>
+                  <li>
+                    <a href="">百度贴吧</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="">腾讯</a>
+                <ul>
+                  <li>
+                    <a href="">腾讯网</a>
+                  </li>
+                  <li>
+                    <a href="">QQ空间</a>
+                  </li>
+                  <li>
+                    <a href="">QQ音乐</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="">新浪</a>
+                <ul>
+                  <li>
+                    <a href="">新浪首页</a>
+                  </li>
+                  <li>
+                    <a href="">新浪微博</a>
+                  </li>
+                  <li>
+                    <a href="">新浪博客</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="">网易</a>
+                <ul>
+                  <li>
+                    <a href="">163首页</a>
+                  </li>
+                  <li>
+                    <a href="">163邮箱</a>
+                  </li>
+                  <li>
+                    <a href="">网易科技</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="">新闻</a>
+            <ul>
+              <li>
+                <a href="">搜狐新闻</a>
+              </li>
+              <li>
+                <a href="">腾讯新闻</a>
+              </li>
+              <li>
+                <a href="">新浪新闻</a>
+              </li>
+              <li>
+                <a href="">网易新闻</a>
+              </li>
+            </ul>
+          </li>
+          <ul>
+            <li>
+              <a href="">社交1</a>
+              <ul>
+                <li>
+                  <a href="">社交1-1</a>
+                </li>
+                <li>
+                  <a href="">社交1-2</a>
+                </li>
+                <li>
+                  <a href="">社交1-3</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="">社交2</a>
+              <ul>
+                <li>
+                  <a href="">社交2-1</a>
+                </li>
+                <li>
+                  <a href="">社交2-2</a>
+                </li>
+                <li>
+                  <a href="">社交2-3</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="">社交3</a>
+              <ul>
+                <li>
+                  <a href="">社交3-1</a>
+                </li>
+                <li>
+                  <a href="">社交3-2</a>
+                </li>
+                <li>
+                  <a href="">社交3-3</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <hr />
+  <br />
+  <!--时间日期-->
+  <div>
+    <h2>日期选择器</h2>
+    <div id="schedule-box" class="boxshaw">
+    </div>
+    <div>
+      <h3 id="h3Ele"></h3>
+    </div>
+    <script>
+      var mySchedule = new Schedule({
+        el: '#schedule-box',
+        //date: '2018-9-20',
+        clickCb: function (y, m, d) {
+          document.querySelector('#h3Ele').innerHTML = '日期：' + y + '-' + m + '-' + d
+        },
+        nextMonthCb: function (y, m, d) {
+          document.querySelector('#h3Ele').innerHTML = '日期：' + y + '-' + m + '-' + d
+        },
+        nextYeayCb: function (y, m, d) {
+          document.querySelector('#h3Ele').innerHTML = '日期：' + y + '-' + m + '-' + d
+        },
+        prevMonthCb: function (y, m, d) {
+          document.querySelector('#h3Ele').innerHTML = '日期：' + y + '-' + m + '-' + d
+        },
+        prevYearCb: function (y, m, d) {
+          document.querySelector('#h3Ele').innerHTML = '日期：' + y + '-' + m + '-' + d
+        }
+      });
+    </script>
+  </div>
+  <br />
+  <div>
+    <input onclick="SetDate(this,'yyyy-MM-dd hh:mm:ss')" placeholder="点我查看效果">
+  </div>
+
+  <hr />
+  <br />
+
+  <!--拖拽-->
+  <div>
+    <div id="drag"></div>
+    <script type="text/javascript">
+      $('#drag').drag();
+    </script>
+  </div>
+
+  <br />
+
+  <div>
+    <h2>屌炸天的拖拽</h2>
+    <div class="dowebok dad-active dad-container">
+      <div class="item item1 dads-children dad-draggable-area" data-dad-id="1" data-dad-position="6" style="visibility: visible;">
+        <span>1</span>
+      </div>
+      <div class="item item2 dads-children dad-draggable-area" data-dad-id="2" data-dad-position="1">
+        <span>2</span>
+      </div>
+      <div class="item item3 dads-children dad-draggable-area" data-dad-id="3" data-dad-position="3">
+        <span>3</span>
+      </div>
+      <div class="item item4 dads-children dad-draggable-area" data-dad-id="4" data-dad-position="4">
+        <span>4</span>
+      </div>
+      <div class="item item5 dads-children dad-draggable-area" data-dad-id="5" data-dad-position="5">
+        <span>5</span>
+      </div>
+      <div class="item item6 dads-children dad-draggable-area" data-dad-id="6" data-dad-position="2" style="visibility: visible;">
+        <span>6</span>
+      </div>
+    </div>
+    <script>
+      $(function () {
+        $('.dowebok').dad();
+      });
+    </script>
+  </div>
+
+  <hr />
+
+  <script src="js/common_form.js"></script>
+</body>
+
+</html>
